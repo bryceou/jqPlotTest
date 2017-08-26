@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var ajaxDataRenderer = function (url, plot, options) {
+                var ret = null;
+                $.ajax({
+                    async: false,
+                    url: url,
+                    dataType: "json",
+                    success: function (data) {
+                        ret = data;
+                    }
+                });
+                return ret;
+            };
+            var jsonurl = "/DataInput/GetStudents";
+
+            var options = {
+                title: "AJAX JSON Data Renderer",
+                dataRenderer: ajaxDataRenderer, //获取Ajax数据
+                dataRendererOptions: {
+                    unusedOptionalUrl: jsonurl //获取数据的URL
+                },
+                axes: {
+                    xaxis: {
+                        renderer: $.jqplot.CategoryAxisRenderer
+                    }
+                }
+            };
+            $.jqplot('myChart', jsonurl, options);
+
+        });
+    </script>
+}
+
+

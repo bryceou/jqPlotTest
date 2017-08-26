@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "BarMargin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [['Germany', 12], ['Italy', 8], ['Spain', 6], ['France', 10], ['UK', 7]];
+            var options = {
+                title: "jqPlot test",
+                seriesDefaults: {
+                    renderer: $.jqplot.BarRenderer,
+                    rendererOptions: {
+                        barMargin: 80// 间隔
+                    },
+                },
+                axes: {
+                    xaxis: {
+                        renderer: $.jqplot.CategoryAxisRenderer,
+                        tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                        tickOptions: {
+                            angle: -30,
+                            fontSize: '10pt'
+                        }
+                    }
+                }
+            }
+            $.jqplot('myChart', [data], options);
+        });
+    </script>
+}

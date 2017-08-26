@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .jqplot-title {
+        font: italic bold 22px arial,sans-serif;
+        color:red;
+    }
+</style>
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+
+            $.jqplot('myChart', [[100, 110, 140, 130, 80, 75, 120, 130, 100]],
+                {
+                   title:"jqPlot test"
+                });
+        });
+    </script>
+}
+

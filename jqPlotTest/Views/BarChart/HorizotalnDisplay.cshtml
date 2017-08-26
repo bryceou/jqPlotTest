@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "HorizotalnDisplay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data1 = [12, 8, 6, 10, 7]; // Electronics customers
+            var data2 = [14, 12, 4, 14, 11]; // Software customers
+
+            var options = {
+                title: "jqPlot test",
+                seriesDefaults: {
+                    renderer: $.jqplot.BarRenderer,
+                    rendererOptions:{
+                        barDirection: "horizontal"
+                    }
+                },
+                series: [
+                    { label: 'Electionics' },
+                    { label: 'Software' }
+                ],
+                legend:{
+                    show: true,
+                    placement: "outsideGrid",
+                    location:"e"
+                },
+               
+            }
+            $.jqplot('myChart', [data1,data2], options);
+        });
+    </script>
+}
+
+
+
+

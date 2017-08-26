@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "MultiSeries";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var series1 = [1, 8, 3, 4, 5];
+            var series2 = [2, 5, 4, 5, 6];
+            $.jqplot('myChart', [series1, series2],
+                {
+                    title: "jqPlot Test",//标题
+                    seriesColors: ["#105567", "#805567"],//各个序列的颜色
+                    seriesDefaults: {
+                        rendererOptions:{smooth:true}//使线条平滑
+                    }
+                }
+                );
+        });
+    </script>
+}
+

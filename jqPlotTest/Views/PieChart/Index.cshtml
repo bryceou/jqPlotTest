@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [['Dairy', 212], ['Meat', 140], ['Grains', 276],['Fish', 131], ['Vegetables', 510]];
+
+            var options = {
+                seriesDefaults: {
+                    renderer: jQuery.jqplot.PieRenderer,
+                    rendererOptions: {
+                        showDataLabels: true,//显示数据
+                        dataLabels: "value", //默认显示百分比， 如果设置成value显示成数据
+                        sliceMargin: 6,//块与块之间的间隔
+                        fill: false,//块内是否填充颜色
+                    }
+                },
+                legend: {
+                    show: true,
+                    placement: "outsideGrid",
+                    location: "e"
+                }
+            };
+            $.jqplot('myChart', [data], options);
+
+        });
+    </script>
+}
+

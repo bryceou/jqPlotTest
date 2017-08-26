@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Donut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [['Dairy', 212], ['Meat', 140], ['Grains', 276],['Fish', 131], ['Vegetables', 510]];
+
+            var options = {
+                seriesDefaults: {
+                    renderer: $.jqplot.DonutRenderer,
+                    rendererOptions: {
+                        showDataLabels: true,//是否显示数据
+                        dataLabels: 'value',//默认显示百分比， 如果设置成value显示成数据
+                        sliceMargin: 3,//块与块之间的间隔
+                        startAngle: 90 //第一个数据显示的在哪个角度上
+                    }
+                },
+                legend: {
+                    show: true,
+                    placement: "outsideGrid",
+                    location: "e"
+                }
+            };
+            $.jqplot('myChart', [data], options);
+
+        });
+    </script>
+}
+
+
+
+

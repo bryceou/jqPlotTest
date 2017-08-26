@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/jquery.jqplot.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div >
+        @RenderBody()
+    </div>
+
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/jquery.jqplot.min.js"></script>
+    <script src="~/scripts/jqplot.barRenderer.js"></script>
+    <script src="~/scripts/jqplot.canvasTextRenderer.js"></script>
+    <script src="~/scripts/jqplot.canvasAxisLabelRenderer.js"></script>
+    <script src="~/scripts/jqplot.canvasAxisTickRenderer.js"></script>
+    <script src="~/scripts/jqplot.logAxisRenderer.js"></script>
+    <script src="~/scripts/jqplot.dateAxisRenderer.js"></script>
+    <script src="~/scripts/jqplot.highlighter.js"></script>
+    <script src="~/scripts/jqplot.cursor.js"></script>
+    <script src="~/scripts/jqplot.canvasOverlay.js"></script>
+    <script src="~/scripts/jqplot.categoryAxisRenderer.js"></script>
+    <script src="~/scripts/jqplot.pointLabels.js"></script>
+    <script src="~/scripts/jqplot.pieRenderer.js"></script>
+    <script src="~/scripts/jqplot.donutRenderer.js"></script>
+    <script src="~/scripts/jqplot.json2.js"></script>
+    @RenderSection("Javascript",false)
+</body>
+</html>

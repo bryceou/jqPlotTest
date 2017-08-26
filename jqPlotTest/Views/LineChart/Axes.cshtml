@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Axes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [[100, 110, 140, 130, 80, 75, 120, 130, 100]];
+            $.jqplot('myChart', data,
+                {
+                    title: "jqPlot test",
+                    axesDefaults: {
+                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                    },
+                    axes: {
+                        xaxis: { label: "X Axes", ticks: [0, 3, 6, 7, 12] },
+                        yaxis: {
+                            label: "Y Axes",
+                            ticketRenderer: $.jqplot.AxisTickRenderer,
+                            tickOptions: {
+                                formatString:"%d%"
+                            }
+                        }
+                    }
+                });
+        });
+    </script>
+}
+

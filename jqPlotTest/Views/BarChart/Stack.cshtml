@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Stack";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data1 = [12, 8, 6, 10, 7]; // Electronics customers
+            var data2 = [14, 12, 4, 14, 11]; // Software customers
+
+            var options = {
+                title: "jqPlot test",
+                stackSeries:true,//Stack形式显示
+                seriesDefaults: {
+                    renderer: $.jqplot.BarRenderer,
+                    rendererOptions: {
+                        barMargin: 30,// 间隔
+                        barDirection: 'horizontal'//水平显示
+                    }
+                },
+                series: [
+                    { label: 'Electionics' },
+                    { label: 'Software' }
+                ],
+                legend:{
+                    show: true,
+                    placement: "outsideGrid",
+                    location:"e"
+                },
+
+            }
+            $.jqplot('myChart', [data1,data2], options);
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "BarChart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+
+            $.jqplot('myChart', [[100, 110, 140, 130, 80, 75, 120, 130, 100]],
+                {
+                    title: "Bar chart",//标题
+                    series: [{
+                        renderer: $.jqplot.BarRenderer,//柱状图
+                        rendererOptions: {varyBarColor:true}//各个柱状图显示不同的颜色
+
+                    }],//序列
+                    axes: { yaxis: { min: 0, max: 150 } },//Y轴最小值与最大值
+                    grid: { drawGridlines: false },//网络线
+                }
+                );
+        });
+    </script>
+}
+
+
+
+

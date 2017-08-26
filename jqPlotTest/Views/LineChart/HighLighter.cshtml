@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "HighLighter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [[[10, 100], [80, 130], [65, 75], [40, 130],[60, 80], [30, 140], [70, 120], [20, 110], [95, 100]]];
+            $.jqplot('myChart', data,
+                {
+                    title: "jqPlot test",
+                    highlighter: {
+                        show: true,//鼠标放上去时， 显示X与Y值
+                        sizeAdjust: 7.5,//点放大倍数
+                        showMarker: true,//是否显示Marker
+                        tooltipAxes: "xy",//Tooltip显示X与Y值
+                        formatString: '<table class="jqplot-highlighter"> <tr><td>X:</td><td>%s</td></tr> <tr><td>Y:</td><td>%s</td></tr></table>' //Tooltip显示格式
+                    },
+                    cursor: {
+                        show:false //是否显示十字叉
+                    }
+                });
+        });
+    </script>
+}
+
+
+
+

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Time";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var dates = [['2012-01-14 10:00', 30], ['2012-01-14 12:00', 60], ['2012-01-14 17:00', 40]];
+
+            var options = {
+                title: 'Handling Date Time Values',
+                axes: {
+                    xaxis: {
+                        renderer: $.jqplot.DateAxisRenderer,
+                        tickOptions: {
+                            formatString: '%R'
+                        }
+                    },
+                    yaxis: {
+                        tickOptions: {
+                            formatString: '$%d'
+                        }
+                    }
+                }
+            };
+            $.jqplot('myChart', [dates], options);
+        });
+    </script>
+}
+
+
+
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "DrawLine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myChart" style="width:1000px; height:400px;"></div>
+
+@section Javascript{
+    <script>
+        $(function () {
+            var data = [[[10, 100], [80, 130], [65, 75], [40, 130],[60, 80], [30, 140], [70, 120], [20, 110], [95, 100]]];
+            $.jqplot('myChart', data,
+                {
+                    title: "jqPlot test",
+                    grid: {
+                        background: 'green'
+                    },
+                    canvasOverlay: {
+                        show: true,
+                        objects: [
+                        {
+                            horizontalLine: {
+                                y: 70,
+                                lineWidth: 3,
+                                color: 'rgb(255, 0, 0)',
+                                shadow: true,
+                                lineCap: 'butt'
+                            }
+                        },
+                        {
+                            dashedHorizontalLine: {
+                                y: 145,
+                                lineWidth: 4,
+                                color: 'rgb(0, 0, 255)',
+                                shadow: false,
+                                dashPattern: [8, 16],
+                                lineCap: 'round'
+                            }
+                        }
+                        ]
+                    }
+                });
+        });
+    </script>
+}
