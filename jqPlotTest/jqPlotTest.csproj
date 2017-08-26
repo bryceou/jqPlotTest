@@ -187,6 +187,7 @@
     <Content Include="Views\PieChart\Index.cshtml" />
     <Content Include="Views\PieChart\Donut.cshtml" />
     <Content Include="Views\DataInput\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
